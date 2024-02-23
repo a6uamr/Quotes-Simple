@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quotes (Simple)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+      body {color: #212529; font-family: 'Edu SA Beginner', sans-serif;
+        font-size: 1.25em; text-align: center; min-height: calc(100vh - 2em);
+        margin: 1em; display: flex;}
+      body>div {margin: auto;}
+      h1, button {font-weight: 500;}
+      p {line-height: 1.7;}
+      button {-webkit-tap-highlight-color: #0000;
+        font-family: inherit; font-size: 1em;}
+      button:enabled {cursor: pointer;}
+      .bb {color: #6f6cde; background: inherit;
+        box-shadow: -.188em -.188em .313em #f8f9facc,.188em .188em .313em #2b303533;
+        line-height: 3.125em; width: 12.5em; padding: 0; border: 0;
+        outline-color: inherit; border-radius: 1.5625em; transition: .15s;}
+      .bb:enabled:hover {box-shadow: -.188em -.188em .313em #f8f9fa77,
+        .188em .188em .313em #2b303511;}
+      .bb:enabled:active {color: #79e3b6;
+        box-shadow: inset -.125em -.125em .25em #f8f9fa80,
+        inset .25em .25em .5em #2b30351a;}
+      blockquote {margin-inline: 0;}
+      blockquote>p {background: #f8f9fa; box-shadow: 0 .125em .25em #00000013;
+        width: fit-content; max-width: 25em; padding: 1em; border-radius: .3125em;
+        margin-inline: auto;}
+      blockquote>p::before {content: open-quote;}
+      blockquote>p::after {content: close-quote;}
+      blockquote>footer::before {content: '— ';}
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Quote of the Day</h1>
+      <p>Press the button below and get a random quote!</p>
+      <button type="button" class="bb">New Quote</button>
+      <blockquote cite="https://www.goodreads.com/quotes"></blockquote>
+    </div>
+    <script>
+      const q=document.querySelector('blockquote'), R=[], Q=[{q:"Be yourself; everyone else is already taken.",a:'Oscar Wilde'},{q:"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",a:'Marilyn Monroe'},{q:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",a:'Albert Einstein'},{q:"So many books, so little time.",a:'Frank Zappa'},{q:"A room without books is like a body without a soul.",a:'Marcus Tullius Cicero'},{q:"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",a:'Bernard M. Baruch'},{q:"You've gotta dance like there's nobody watching,<br>Love like you'll never be hurt,<br>Sing like there's nobody listening,<br>And live like it's heaven on earth.",a:'William W. Purkey'},{q:"You know you're in love when you can't fall asleep because reality is finally better than your dreams.",a:'Dr. Seuss'},{q:"You only live once, but if you do it right, once is enough.",a:'Mae West'},{q:"Be the change that you wish to see in the world.",a:'Mahatma Gandhi'},{q:"In three words I can sum up everything I've learned about life: it goes on.",a:'Robert Frost'},{q:"If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.",a:'J.K. Rowling'},{q:"Don't walk in front of me... I may not follow<br>Don't walk behind me... I may not lead<br>Walk beside me... just be my friend",a:'Albert Camus'},{q:"If you tell the truth, you don't have to remember anything.",a:'Mark Twain'},{q:"Friendship ... is born at the moment when one man says to another \"What! You too? I thought that no one but myself . . .",a:'C.S. Lewis'},{q:"I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",a:'Maya Angelou'},{q:"A friend is someone who knows all about you and still loves you.",a:'Elbert Hubbard'},{q:"To live is the rarest thing in the world. Most people exist, that is all.",a:'Oscar Wilde'},{q:"Always forgive your enemies; nothing annoys them so much.",a:'Oscar Wilde'},{q:"Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.",a:'Martin Luther King'},{q:"Live as if you were to die tomorrow. Learn as if you were to live forever.",a:'Mahatma Gandhi'},{q:"We accept the love we think we deserve.",a:'Stephen Chbosky'},{q:"Without music, life would be a mistake.",a:'Friedrich Nietzsche'},{q:"I am so clever that sometimes I don't understand a single word of what I am saying.",a:'Oscar Wilde'},{q:"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",a:'Ralph Waldo Emerson'},{q:"Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.",a:'Steve Jobs'},{q:"Insanity is doing the same thing, over and over again, but expecting different results.",a:'Narcotics Anonymous'},{q:"I believe that everything happens for a reason. People change so that you can learn to let go, things go wrong so that you appreciate them when they're right, you believe lies so you eventually learn to trust no one but yourself, and sometimes good things fall apart so better things can fall together.",a:'Marilyn Monroe'},{q:"It is better to be hated for what you are than to be loved for what you are not.",a:'Andre Gide'},{q:"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",a:'H. Jackson Brown'}];
+      document.querySelector('button').addEventListener('click',()=>
+        {// let r; do r=Math.floor(Math.random()*Q.length); while (R.includes(r))
+        // q.innerHTML=`<p>${Q[r].q}</p><footer>${Q[r].a}</footer>`;
+        // R.unshift(r); if (R.length==Q.length) R.splice(R.length>1?1:0);
+        const r=Math.floor(Math.random()*Q.length);
+        q.innerHTML=`<p>${Q[r].q}</p><footer>${Q[r].a}</footer>`;
+        R.unshift(Q.splice(r,1)[0]); if (Q.length==0) Q.push(...R.splice(R.length>1?1:0));});
+    </script>
+  </body>
+</html>
